@@ -8,10 +8,11 @@ VK_GROUP_ID = 179723123
 
 
 def upload_image_to_album(vk, image_path):
+    album_id = 263905799
     upload = vk_api.VkUpload(vk)
     photo = upload.photo(
         photos=image_path,
-        album_id=263905799,
+        album_id=album_id,
         group_id=VK_GROUP_ID
     )
     vk_photo_url = 'photo{}_{}'.format(
@@ -72,6 +73,6 @@ if __name__ == '__main__':
     vk_app_id = os.getenv('app_id')
     fb_token = os.getenv('fb_token')
     fb_group_id = os.getenv('fb_group_id')
-    # post_vkontakte('images\iceland.jpg', 'Picture from Iceland')
-    # post_telegram('@dev_py', 'images\iceland.jpg', 'Picture from Iceland')
+    post_vkontakte('images\iceland.jpg', 'Picture from Iceland')
+    post_telegram('@dev_py', 'images\iceland.jpg', 'Picture from Iceland')
     post_facebook('images\iceland.jpg', 'Picture from Iceland')
