@@ -86,5 +86,5 @@ if __name__ == '__main__':
     fb_token = os.getenv('fb_token')
     fb_group_id = os.getenv('fb_group_id')
     post_vkontakte(image_path, 263905799, message, vk_login, vk_token, vk_app_id)
-    post_telegram('@dev_py', 'images\iceland.jpg', 'Picture from Iceland', bot_token)
-    post_facebook('images\iceland.jpg', 'Picture from Iceland', fb_token, fb_group_id)
+    post_telegram('@dev_py', image_path, message, bot_token)
+    post_facebook(image_path, message, fb_token, fb_group_id)
