@@ -30,7 +30,7 @@ pip install -r requirements.txt
 ```
 ### Program output example
 ```
-python main.py
+python main.py images\photo_1.jpg 'Message to post!'
 ```
 
 ### Project Goals
