@@ -48,7 +48,7 @@ def post_telegram(chat_id, image_path, message, bot_token):
     bot.send_photo(chat_id=chat_id, photo=image)
 
 
-def upload_image_to_fb(image_path):
+def upload_image_to_fb(fb_token, fb_group_id, image_path):
     url = f'https://graph.facebook.com/{fb_group_id}/photos'
     data = {
         'access_token': fb_token
@@ -61,7 +61,7 @@ def upload_image_to_fb(image_path):
 
 def post_facebook(image_path, message, fb_token, fb_group_id):
     url = f'https://graph.facebook.com/{fb_group_id}/feed'
-    media_id = upload_image_to_fb(image_path)
+    media_id = upload_image_to_fb(fb_token, image_path)
     media_attach = {"media_fbid": f"{media_id}"}
     data = {
         'message': f'{message}',
