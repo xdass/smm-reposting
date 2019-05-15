@@ -71,14 +71,7 @@ def post_facebook(image_path, message, fb_token, fb_group_id):
     response = requests.post(url, data=data)
 
 
-if __name__ == '__main__':
-    load_dotenv()
-    parser = argparse.ArgumentParser(description='Post messages with photo to 3 services')
-    parser.add_argument('path', metavar='p', help='path to image')
-    parser.add_argument('message', metavar='m', help='message to post')
-    args = parser.parse_args()
-    image_path = args.path
-    message = args.message
+def main(image_path, message):
     bot_token = os.getenv('bot_token')
     vk_token = os.getenv('vk_access_token')
     vk_login = os.getenv('vk_login')
@@ -89,3 +82,15 @@ if __name__ == '__main__':
     post_vkontakte(image_path, vk_album_id, message, vk_login, vk_token, vk_app_id)
     post_telegram('@dev_py', image_path, message, bot_token)
     post_facebook(image_path, message, fb_token, fb_group_id)
+
+
+if __name__ == '__main__':
+    load_dotenv()
+    parser = argparse.ArgumentParser(description='Post messages with photo to 3 services')
+    parser.add_argument('path', metavar='p', help='path to image')
+    parser.add_argument('message', metavar='m', help='message to post')
+    args = parser.parse_args()
+    image_path = args.path
+    message = args.message
+    main(image_path, message)
+
